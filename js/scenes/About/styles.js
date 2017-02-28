@@ -21,7 +21,7 @@ module.exports = StyleSheet.create({
     borderLeftColor: 'white',
     borderRightColor: 'white',
     borderTopColor: 'white',
-    borderBottomColor: '#999999',
+    borderBottomColor: '#e6e6e6',
     borderStyle: 'solid',
     borderWidth: 0.5,
     //height: StyleSheet.hairlineWidth,
