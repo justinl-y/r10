@@ -5,7 +5,6 @@ import {
   Image,
   Text,
   ActivityIndicator,
-  // DataSource,
 } from 'react-native';
 import styles from './styles';
 
@@ -37,7 +36,6 @@ export default class About extends Component {
     }
   }
 
-
   render() {
     if (this.state.isLoading) {
       return (
@@ -46,36 +44,30 @@ export default class About extends Component {
     } else {
       return (
         <ScrollView style={styles.container}>
-          <Image
-            style={styles.headerImage}
-            resizeMode={'contain'}
-            source={require('../../assets/images/r10_logo.png')}
-          />
-          <Text>R10 is a conference that focuses on just about any topic related to dev.</Text>
-          <Text>Date & Venue</Text>
-          <Text>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
-          <Text>Code of Conduct</Text>
-          {
-            this.state.dataSource.map((item) => {
-              return (
-                <View key={Math.random() * Date.now()}>
-                  <Text>{item.title}</Text>
-                  <Text>{item.description}</Text>
-                </View>);
-            })
-          }
+          <View style={[styles.borderBottom, styles.imageCentre]}>
+            <Image
+              style={styles.headerImage}
+              resizeMode={'contain'}
+              source={require('../../assets/images/r10_logo.png')}
+            />
+          </View>
+          <View>
+            <Text style={styles.bodyText}>R10 is a conference that focuses on just about any topic related to dev.</Text>
+            <Text style={styles.bodyTextHeader}>Date & Venue</Text>
+            <Text style={styles.bodyText}>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
+            <Text style={styles.bodyTextHeader}>Code of Conduct</Text>
+            {
+              this.state.dataSource.map((item) => {
+                return (
+                  <View key={Math.random() * Date.now()}>
+                    <Text style={styles.listTextHeader}>{item.title}</Text>
+                    <Text style={styles.bodyText}>{item.description}</Text>
+                  </View>);
+              })
+            }
+          </View>
         </ScrollView>
       );
     }
   }
 }
-
-/*
-return (
-    <ListView
-      dataSource={this.state.dataSource}
-      renderRow={(data) => <View><Text>{data.name}</Text></View>} 
-    />
-  );
-}
-*/

@@ -9,7 +9,7 @@ import About from '../js/scenes/About';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 25,
+    paddingTop: 20,
   },
 });
 
