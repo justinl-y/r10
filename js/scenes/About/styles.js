@@ -2,7 +2,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-module.exports = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     marginLeft: 15,
     marginRight: 15,
@@ -55,3 +55,5 @@ module.exports = StyleSheet.create({
   },
 
 });
+
+export default styles;

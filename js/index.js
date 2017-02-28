@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  View,
+  StatusBar,
+  // View,
 } from 'react-native';
-import About from '../js/scenes/About';
+import {
+  NavigationContext,
+  NavigationProvider,
+  StackNavigation,
+} from '@exponent/ex-navigation';
+import { Provider } from 'react-redux';
+import Router from '../js/navigation/router';
+import Store from '../js/redux/store';
 
-// <View><Text>Welcome to React Native!</Text></View>
+const navigationContext = new NavigationContext({
+  router: Router,
+  store: Store,
+});
+
 
 const styles = StyleSheet.create({
   container: {
@@ -16,9 +28,14 @@ const styles = StyleSheet.create({
 export default class R10 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <About />
-      </View>
+      <Provider store={Store}>
+        <NavigationProvider context={navigationContext}>
+          {/* <NavigationProvider router={Router}>*/}
+          <StatusBar barStyle="light-content" />
+
+          <StackNavigation initialRoute={Router.getRoute('root')} />
+        </NavigationProvider>
+      </Provider>
     );
   }
 }

@@ -18,6 +18,12 @@ export default class About extends Component {
     };
   }
 
+  static route = {
+    navigationBar: {
+      title: 'About',
+    }
+  }
+
   componentDidMount() {
     const endpoint = 'https://r10app-95fea.firebaseio.com/code_of_conduct.json';
 
