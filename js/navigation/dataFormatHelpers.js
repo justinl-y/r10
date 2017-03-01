@@ -1,4 +1,4 @@
-// Helper to format format individual Firebase records
+// Helper to format format individual Firebase records - for speakers
 export const formatDataObject = (data) => {
   const dataObject = Object.getOwnPropertyNames(data).map(index => data[index]);
   return dataObject[0];

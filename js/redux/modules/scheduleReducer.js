@@ -32,7 +32,7 @@ export const fetchSchedule = () => {
 // initial state
 const aboutPageInitialState = {
   isLoading: true,
-  dataSource: [],
+  dataSource: { blobData: {}, sectionIds: [], rowIds: [] },
 };
 
 // reducer

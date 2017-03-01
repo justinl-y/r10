@@ -1,47 +1,42 @@
 import React, { PropTypes } from 'react';
 import {
   View,
-  ScrollView,
-  Image,
   Text,
+  ListView,
 } from 'react-native';
 // import CodeOfConduct from '../../components/CodeOfConduct';
 import styles from './styles';
 
+function formatTimeStampToHours(timestamp) {
+  const date = new Date(timestamp * 1000);
+  const hours = date.getHours();
+  const minutes = `0${date.getMinutes()}`;
+  const dayHalf = hours < 13 ? 'AM' : 'PM';
+
+  return `${hours}:${minutes.substr(-2)} ${dayHalf}`;
+}
+
 const ScheduleContainer = ({ items }) => (
-  <View>
-    <Text>Schedule</Text>
-    {/*
-    <ScrollView style={styles.container}>
-      <View style={[styles.borderBottom, styles.imageCentre]}>
-        <Image
-          style={styles.headerImage}
-          resizeMode={'contain'}
-          source={require('../../assets/images/r10_logo.png')}
-        />
+  <ListView
+    style={styles.container}
+    dataSource={items}
+    renderSectionHeader={(sectionData, startTime) =>
+      <Text
+        style={styles.sectionHeader}
+      >{formatTimeStampToHours(startTime)}</Text>
+    }
+    renderRow={item =>
+      <View style={styles.rowItem}>
+        {/* console.log(item) */}
+        <Text style={styles.rowItemTitle}>{item.title}</Text>
+        <Text>{item.location}</Text>
       </View>
-      <View>
-        <Text style={styles.bodyText}>R10 is a conference that focuses on just about any topic related to dev.</Text>
-        <Text style={styles.bodyTextHeader}>Date & Venue</Text>
-        <Text style={styles.bodyText}>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
-        <Text style={styles.bodyTextHeader}>Code of Conduct</Text>
-        {
-          items.map(item => (
-            <CodeOfConduct
-              key={Math.random() * Date.now()}
-              title={item.title}
-              description={item.description}
-            />
-          ))
-        }
-      </View>
-    </ScrollView>
-  */}
-  </View>
+    }
+  />
 );
 
 ScheduleContainer.propTypes = {
-  // items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  items: PropTypes.object.isRequired,
 };
 
 export default ScheduleContainer;
