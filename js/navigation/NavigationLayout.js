@@ -11,16 +11,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Router from '../../js/navigation/router';
 // import { typography } from '../../js/config/styles';
 
-const styles = {
-  tabNavigation: {
-    tabBarColor: 'black',
-  },
-
-  tabItem: {
-    color: 'white',
-  },
-};
-
 class NavigationLayout extends Component {
   renderTitle(title, isSelected) {
     const color = isSelected ? 'grey' : 'white';
@@ -42,21 +32,58 @@ class NavigationLayout extends Component {
   render() {
     return (
       <TabNavigation
-        style={styles.tabNavigation}
         id="main"
         tabBarColor="black"
         navigatorUID="main"
         initialTab="about"
       >
+
         <TabNavigationItem
-          style={styles.tabItem}
+          // routeNavigatorUID="schedule"
+          id="schedule"
+          title="Schedule"
+          renderTitle={isSelected => this.renderTitle('Schedule', isSelected)}
+          renderIcon={isSelected => this.renderIcon('ios-calendar', isSelected)}
+        >
+          <StackNavigation
+            id="schedule"
+            navigatorUID="schedule"
+            initialRoute={Router.getRoute('schedule')}
+          />
+        </TabNavigationItem>
+
+        <TabNavigationItem
+          // routeNavigatorUID="about"
+          id="map"
+          title="Map"
+          renderTitle={isSelected => this.renderTitle('Map', isSelected)}
+          renderIcon={isSelected => this.renderIcon('ios-map', isSelected)}
+        >
+          <StackNavigation
+            id="map"
+            navigatorUID="map"
+            initialRoute={Router.getRoute('map')}
+          />
+        </TabNavigationItem>
+
+        <TabNavigationItem
+          // routeNavigatorUID="about"
+          id="faves"
+          title="Faves"
+          renderTitle={isSelected => this.renderTitle('Faves', isSelected)}
+          renderIcon={isSelected => this.renderIcon('ios-heart', isSelected)}
+        >
+          <StackNavigation
+            id="faves"
+            navigatorUID="faves"
+            initialRoute={Router.getRoute('faves')}
+          />
+        </TabNavigationItem>
+
+        <TabNavigationItem
           // routeNavigatorUID="about"
           id="about"
           title="About"
-          // selectedStyle={styles.selectedTab}
-          // renderIcon={(isSelected) => <Image source={require('./assets/images/home.png')} />}
-          // renderIcon={isSelected => <Image source={require('../assets/images/about.png')} />}
-
           renderTitle={isSelected => this.renderTitle('About', isSelected)}
           renderIcon={isSelected => this.renderIcon('ios-book', isSelected)}
         >

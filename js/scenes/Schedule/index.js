@@ -6,12 +6,15 @@ import {
 // import styles from './styles';
 
 class Schedule extends Component {
-
-  // static route = {
-  //   navigationBar: {
-  //     title: 'Home',
-  //   }
-  // }
+  constructor() {
+    super();
+  }
+  
+  static route = {
+    navigationBar: {
+    title: 'Schedule',
+    }
+  }
 
   render() {
     return (

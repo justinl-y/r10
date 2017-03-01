@@ -1,10 +1,14 @@
 import { createRouter } from '@exponent/ex-navigation';
-import About from '../scenes/About';
-import Schedule from '../scenes/Schedule';
 import NavigationLayout from './NavigationLayout';
+import Schedule from '../scenes/Schedule';
+import AppMap from '../scenes/Map';
+import Faves from '../scenes/Faves';
+import About from '../scenes/About';
 
 export default createRouter(() => ({
   root: () => NavigationLayout,
-  about: () => About,
   schedule: () => Schedule,
+  map: () => AppMap,
+  faves: () => Faves,
+  about: () => About,
 }));
