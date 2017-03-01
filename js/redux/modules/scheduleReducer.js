@@ -1,4 +1,4 @@
-import { formatSessionData } from '../../navigation/dataFormatHelpers';
+import { formatSessionData } from '../../lib/dataFormatHelpers';
 
 // action types
 const GET_SCHEDULE = 'GET_SCHEDULE';
@@ -43,7 +43,6 @@ export default (state = aboutPageInitialState, action) => {
     case GET_SCHEDULE:
       const formattedData = formatSessionData(action.payload);
 
-      // return { ...state, dataSource: action.payload };
       return { ...state, dataSource: formattedData };
     default:
       return state;

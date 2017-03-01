@@ -27,7 +27,6 @@ const ScheduleContainer = ({ items }) => (
     }
     renderRow={item =>
       <View style={styles.rowItem}>
-        {/* console.log(item) */}
         <Text style={styles.rowItemTitle}>{item.title}</Text>
         <Text>{item.location}</Text>
       </View>
