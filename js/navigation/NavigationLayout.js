@@ -9,11 +9,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Router from '../../js/navigation/router';
-// import { typography } from '../../js/config/styles';
+import { colours, typography } from '../../js/config/styles';
 
 class NavigationLayout extends Component {
   renderTitle(title, isSelected) {
-    const color = isSelected ? 'grey' : 'white';
+    const color = isSelected ? colours.tabIconSelected : colours.tabIconDefault;
 
     return (
       <Text size={12} style={{ color }}>{title}</Text>
@@ -21,8 +21,9 @@ class NavigationLayout extends Component {
   }
 
   renderIcon(iconName, isSelected) {
-    // let color = 'white'; //isSelected ? Colors.tabIconSelected : Colors.tabIconDefault;
-    const color = isSelected ? 'grey' : 'white';
+    // let color = 'white'; //isSelected ? Colors.tabIconSelected : Colors.tabIconSelected;
+    // const color = isSelected ? 'grey' : 'white';
+    const color = isSelected ? colours.tabIconSelected : colours.tabIconDefault;
 
     return (
       <Icon name={iconName} size={24} color={color} />

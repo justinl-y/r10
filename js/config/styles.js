@@ -5,6 +5,8 @@ export const colours = {
   purple: '#9963ea',
   red: '#cf392a',
   white: '#ffffff',
+  tabIconSelected: '#ffffff',
+  tabIconDefault: '#999999',
 };
 
 export const typography = {

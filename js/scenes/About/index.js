@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchCodeOfConduct, setIsLoading } from '../../redux/modules/actionReducer';
+import { fetchCodeOfConduct, setIsLoading } from '../../redux/modules/aboutReducer';
 import AboutContainer from './AboutContainer';
 
 class About extends Component {
@@ -26,7 +26,6 @@ class About extends Component {
   }
 
   render() {
-    console.log(this.props.isLoading);
     if (this.props.isLoading) {
       return (
         <ActivityIndicator 
