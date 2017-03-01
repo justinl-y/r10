@@ -1,6 +1,7 @@
 import {
   StyleSheet,
 } from 'react-native';
+import { colours, typography } from '../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,10 +19,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     marginBottom: 20,
-    borderLeftColor: 'white',
-    borderRightColor: 'white',
-    borderTopColor: 'white',
-    borderBottomColor: '#e6e6e6',
+    borderLeftColor: colours.white,
+    borderRightColor: colours.white,
+    borderTopColor: colours.white,
+    borderBottomColor: colours.lightGrey,
     borderStyle: 'solid',
     borderWidth: 0.5,
     //height: StyleSheet.hairlineWidth,
@@ -33,22 +34,22 @@ const styles = StyleSheet.create({
   },
 
   bodyTextHeader: {
-    fontFamily: 'Verdana',
-    color: '#999999',
+    fontFamily: typography.fontMain,
+    color: colours.mediumGrey,
     fontSize: 22,
     paddingBottom: 20,
     fontWeight: 'bold',
   },
 
   bodyText: {
-    fontFamily: 'Verdana',
-    color: '#999999',
+    fontFamily: typography.fontMainLight,
+    color: colours.mediumGrey,
     paddingBottom: 20,
   },
 
   listTextHeader: {
-    fontFamily: 'Verdana',
-    color: '#9963ea',
+    fontFamily: typography.fontMain,
+    color: colours.purple,
     fontSize: 14,
     paddingBottom: 20,
     fontWeight: 'bold',

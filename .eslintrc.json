@@ -1,5 +1,5 @@
 {
-  "extends": "eslint:recommended",
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "es6": true
@@ -23,9 +23,9 @@
     "react/jsx-no-bind": 0,
     "react/jsx-filename-extension": 0,
     "no-underscore-dangle": 0,
-    "max-len": 1,
-    "no-unused-vars": 1,
-    "no-console": 1,
-    "no-undef": 1
+    "max-len": 1
+    //"no-unused-vars": 1,
+    //"no-console": 1,
+    //"no-undef": 1
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
+  // StyleSheet,
   StatusBar,
   // View,
 } from 'react-native';
@@ -18,12 +18,11 @@ const navigationContext = new NavigationContext({
   store: Store,
 });
 
-
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
   },
-});
+});*/
 
 export default class R10 extends Component {
   render() {

@@ -6,16 +6,13 @@ import {
   Text,
   ActivityIndicator,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchCodeOfConduct, setIsLoading } from '../../redux/modules/actionReducer';
 import styles from './styles';
 
-export default class About extends Component {
+class About extends Component {
   constructor() {
     super();
-    this.ds = [];
-    this.state = {
-      dataSource: this.ds,
-      isLoading: true,
-    };
   }
 
   static route = {
@@ -25,25 +22,18 @@ export default class About extends Component {
   }
 
   componentDidMount() {
-    const endpoint = 'https://r10app-95fea.firebaseio.com/code_of_conduct.json';
-
-    fetch(endpoint)
-      // if fetch is successful, read our JSON out of the response
-      .then(response => response.json())
-      .then((result) => {
-        this.setState({ dataSource: result });
-      })
-      .catch(error => console.log(`Error fetching JSON: ${error}`));
+    this.props.fetchCodeOfConduct();
   }
 
   componentDidUpdate() {
-    if (this.state.dataSource && this.state.isLoading) {
-      this.setState({ isLoading: false });
+    if (this.props.dataSource && this.props.isLoading) {
+      this.props.setIsLoading();
     }
   }
 
   render() {
-    if (this.state.isLoading) {
+    console.log(this.props.isLoading);
+    if (this.props.isLoading) {
       return (
         <ActivityIndicator animating size="small" color="black" />
       );
@@ -63,7 +53,7 @@ export default class About extends Component {
             <Text style={styles.bodyText}>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC</Text>
             <Text style={styles.bodyTextHeader}>Code of Conduct</Text>
             {
-              this.state.dataSource.map((item) => {
+              this.props.dataSource.map((item) => {
                 return (
                   <View key={Math.random() * Date.now()}>
                     <Text style={styles.listTextHeader}>{item.title}</Text>
@@ -77,3 +67,24 @@ export default class About extends Component {
     }
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isLoading: state.about.isLoading,
+    dataSource: state.about.dataSource,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  fetchCodeOfConduct: () => {
+    dispatch(fetchCodeOfConduct());
+  },
+  setIsLoading: () => {
+    dispatch(setIsLoading());
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(About);
