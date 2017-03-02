@@ -3,7 +3,7 @@ import { formatDataObject } from '../../lib/dataFormatHelpers';
 // initial state
 const sessionPageInitialState = {
   isLoading: true,
-  dataSource: [],
+  dataSource: {},
 };
 
 // action types
@@ -25,8 +25,6 @@ const getSession = data => ({
 export const fetchSession = (speakerId) => {
   return (dispatch) => {
     const endpoint = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${speakerId}"`;
-
-    // console.log(endpoint);
 
     fetch(endpoint)
       // if fetch is successful, read our JSON out of the response

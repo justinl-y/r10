@@ -10,10 +10,6 @@ import { colours } from '../../config/styles';
 import { goToSession } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
 
-/* const goToSession = () => {
-  this.props.navigator.push(Router.getRoute('session'));
-};*/
-
 const ScheduleContainer = ({ items }) => (
   <ListView
     style={styles.container}

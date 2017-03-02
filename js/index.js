@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-  // StyleSheet,
-  StatusBar,
-  // View,
-} from 'react-native';
+import { StatusBar } from 'react-native';
 import {
   NavigationContext,
   NavigationProvider,
@@ -18,19 +14,16 @@ const navigationContext = new NavigationContext({
   store: Store,
 });
 
-/* const styles = StyleSheet.create({
-  container: {
-    paddingTop: 20,
-  },
-});*/
-
 export default class R10 extends Component {
   render() {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
           <StatusBar barStyle="light-content" />
-          <StackNavigation initialRoute={Router.getRoute('root')} />
+          <StackNavigation
+            navigatorUID="root"
+            initialRoute={Router.getRoute('root')}
+          />
         </NavigationProvider>
       </Provider>
     );

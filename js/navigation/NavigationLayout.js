@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Router from '../../js/navigation/router';
-import { colours, typography } from '../../js/config/styles';
+import { colours } from '../../js/config/styles';
 
 class NavigationLayout extends Component {
   renderTitle(title, isSelected) {
@@ -21,8 +21,6 @@ class NavigationLayout extends Component {
   }
 
   renderIcon(iconName, isSelected) {
-    // let color = 'white'; //isSelected ? Colors.tabIconSelected : Colors.tabIconSelected;
-    // const color = isSelected ? 'grey' : 'white';
     const color = isSelected ? colours.tabIconSelected : colours.tabIconDefault;
 
     return (
@@ -34,9 +32,9 @@ class NavigationLayout extends Component {
     return (
       <TabNavigation
         id="main"
-        tabBarColor="black"
-        navigatorUID="main"
+        //navigatorUID="root"
         initialTab="about"
+        tabBarColor="black"
       >
         <TabNavigationItem
           // routeNavigatorUID="schedule"

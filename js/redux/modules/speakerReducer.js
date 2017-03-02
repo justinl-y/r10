@@ -1,7 +1,7 @@
 // initial state
-const sessionPageInitialState = {
+const speakerPageInitialState = {
   isLoading: true,
-  dataSource: [],
+  dataSource: {},
 };
 
 // action types
@@ -35,7 +35,7 @@ export const fetchSpeaker = (speakerId) => {
 };
 
 // reducer
-export default (state = sessionPageInitialState, action) => {
+export default (state = speakerPageInitialState, action) => {
   switch (action.type) {
     case SET_IS_LOADING_FALSE:
       return { ...state, isLoading: false };

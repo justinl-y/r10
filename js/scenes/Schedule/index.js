@@ -33,9 +33,6 @@ class Schedule extends Component {
   }
 
   render() {
-
-    // console.log('the path is: ', Realm.path);
-
     if (this.props.isLoading) {
       return (
         <ActivityIndicator 

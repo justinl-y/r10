@@ -3,8 +3,11 @@ import {
   ScrollView,
   Text,
   Image,
+  TouchableHighlight,
 } from 'react-native';
 import styles from './styles';
+import { colours } from '../../config/styles';
+import { goToSpeaker } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
 
 const SessionContainer = ({ session, speaker }) => {
@@ -15,10 +18,16 @@ const SessionContainer = ({ session, speaker }) => {
       <Text>{formatTimeStampToHours(session.start_time)}</Text>
       <Text>{session.description}</Text>
       <Text>Presented By:</Text>
-      <Image
-        style={styles.speakerImage}
-        source={{ uri: speaker.image }}
-      />
+      <TouchableHighlight
+        onPress={() => { goToSpeaker(speaker); }}
+        activeOpacity={75 / 100}
+        underlayColor={colours.lightGrey}
+      >
+        <Image
+          style={styles.speakerImage}
+          source={{ uri: speaker.image }}
+        />
+      </TouchableHighlight>
       <Text>{speaker.name}</Text>
     </ScrollView>
   );
@@ -26,7 +35,7 @@ const SessionContainer = ({ session, speaker }) => {
 
 SessionContainer.propTypes = {
   session: PropTypes.object.isRequired,
-  // speaker: PropTypes.array.isRequired,
+  speaker: PropTypes.object.isRequired,
 };
 
 export default SessionContainer;

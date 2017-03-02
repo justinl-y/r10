@@ -17,3 +17,13 @@ export const goToSpeaker = (speakerData) => {
 };
 
 // TODO other functions
+/*
+<TouchableOpacity
+  onPress={() => {
+    this.props.navigation.performAction(({ tabs, stacks }) => {
+      tabs('main').jumpToTab('profile');
+      stacks('home').push(route);
+    });
+  }}
+/>
+*/

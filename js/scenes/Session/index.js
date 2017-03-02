@@ -13,7 +13,7 @@ class Session extends Component {
   
   static route = {
     navigationBar: {
-    title: 'Session',
+      title: 'Session',
     }
   }
 
@@ -28,7 +28,6 @@ class Session extends Component {
   }
 
   render() {
-    console.log(this.props.dataSource)
     if (this.props.isLoading) {
       return (
         <ActivityIndicator 
