@@ -18,7 +18,7 @@ class Session extends Component {
   }
 
   componentDidMount() {
-    //this.props.fetchSession(sessionId);
+    this.props.fetchSession(this.props.sessionData.speaker);
   }
 
   componentDidUpdate() {
@@ -28,6 +28,7 @@ class Session extends Component {
   }
 
   render() {
+    console.log(this.props.dataSource)
     if (this.props.isLoading) {
       return (
         <ActivityIndicator 
@@ -38,7 +39,8 @@ class Session extends Component {
     } else {
       return (
         <SessionContainer 
-          items={this.props.dataSource}
+          session={this.props.sessionData}
+          speaker={this.props.dataSource}
         />
       );
     }
@@ -53,8 +55,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchSession: () => {
-    dispatch(fetchSession());
+  fetchSession: (speakerId) => {
+    dispatch(fetchSession(speakerId));
   },
   setIsLoading: () => {
     dispatch(setIsLoading());
