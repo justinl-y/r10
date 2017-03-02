@@ -30,13 +30,13 @@ export const fetchSchedule = () => {
 };
 
 // initial state
-const aboutPageInitialState = {
+const schedulePageInitialState = {
   isLoading: true,
   dataSource: { blobData: {}, sectionIds: [], rowIds: [] },
 };
 
 // reducer
-export default (state = aboutPageInitialState, action) => {
+export default (state = schedulePageInitialState, action) => {
   switch (action.type) {
     case SET_IS_LOADING_FALSE:
       return { ...state, isLoading: false };

@@ -29,9 +29,7 @@ export default class R10 extends Component {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
-          {/* <NavigationProvider router={Router}>*/}
           <StatusBar barStyle="light-content" />
-
           <StackNavigation initialRoute={Router.getRoute('root')} />
         </NavigationProvider>
       </Provider>

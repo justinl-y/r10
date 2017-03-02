@@ -38,7 +38,6 @@ class NavigationLayout extends Component {
         navigatorUID="main"
         initialTab="about"
       >
-
         <TabNavigationItem
           // routeNavigatorUID="schedule"
           id="schedule"

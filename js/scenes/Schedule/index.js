@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux';
 import { fetchSchedule, setIsLoading } from '../../redux/modules/scheduleReducer';
 import ScheduleContainer from './ScheduleContainer';
-//import { formatDataObject } from '../../navigation/dataFormatHelpers';
+// import Realm from '../../config/models';
 
 class Schedule extends Component {
   constructor() {
@@ -33,6 +33,9 @@ class Schedule extends Component {
   }
 
   render() {
+
+    // console.log('the path is: ', Realm.path);
+
     if (this.props.isLoading) {
       return (
         <ActivityIndicator 

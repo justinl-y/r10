@@ -3,18 +3,24 @@ import {
   View,
   Text,
   ListView,
+  TouchableHighlight,
 } from 'react-native';
-// import CodeOfConduct from '../../components/CodeOfConduct';
 import styles from './styles';
+import { colours } from '../../config/styles';
+import { goToSession } from '../../lib/navigationHelpers';
 
-function formatTimeStampToHours(timestamp) {
+const formatTimeStampToHours = (timestamp) => {
   const date = new Date(timestamp * 1000);
   const hours = date.getHours();
   const minutes = `0${date.getMinutes()}`;
   const dayHalf = hours < 13 ? 'AM' : 'PM';
 
   return `${hours}:${minutes.substr(-2)} ${dayHalf}`;
-}
+};
+
+/* const goToSession = () => {
+  this.props.navigator.push(Router.getRoute('session'));
+};*/
 
 const ScheduleContainer = ({ items }) => (
   <ListView
@@ -26,10 +32,16 @@ const ScheduleContainer = ({ items }) => (
       >{formatTimeStampToHours(startTime)}</Text>
     }
     renderRow={item =>
-      <View style={styles.rowItem}>
-        <Text style={styles.rowItemTitle}>{item.title}</Text>
-        <Text>{item.location}</Text>
-      </View>
+      <TouchableHighlight
+        onPress={() => { goToSession('schedule', item); }}
+        activeOpacity={75 / 100}
+        underlayColor={colours.lightGrey}
+      >
+        <View style={styles.rowItem}>
+          <Text style={styles.rowItemTitle}>{item.title}</Text>
+          <Text>{item.location}</Text>
+        </View>
+      </TouchableHighlight>
     }
   />
 );
