@@ -8,8 +8,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchSchedule, setIsLoading } from '../../redux/modules/scheduleReducer';
-import ScheduleContainer from './ScheduleContainer';
-// import Realm from '../../config/models';
+import ScheduleContainer from './ScheduleContainer'
 
 class Schedule extends Component {
   constructor() {
