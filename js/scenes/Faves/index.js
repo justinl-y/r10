@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchRealmFaves, fetchFaves, setIsLoading } from '../../redux/modules/favesReducer';
+import { fetchFaves, setIsLoading } from '../../redux/modules/favesReducer';
 import FavesContainer from './FavesContainer';
-
-import { getFaves } from '../../config/models';
 
 class Faves extends Component {
   constructor() {
@@ -18,8 +16,7 @@ class Faves extends Component {
   }
 
   componentDidMount() {
-    // this.props.fetchFaves();
-    console.log(getFaves());
+    this.props.fetchFaves();
   }
 
   componentDidUpdate() {
@@ -55,7 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchFaves: () => {
-    dispatch(fetchSession());
+    dispatch(fetchFaves());
   },
   setIsLoading: () => {
     dispatch(setIsLoading());

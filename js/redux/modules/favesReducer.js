@@ -1,4 +1,4 @@
-// import { getFaves } from '../../config/models';
+import { getFaves } from '../../config/models';
 
 // action types
 const GET_FAVES = 'GET_FAVES';
@@ -10,7 +10,7 @@ export const setIsLoading = () => ({
   payload: null,
 });
 
-const getFaves1 = data => ({
+const getFilteredFaves = data => ({
   type: GET_FAVES,
   payload: data,
 });
@@ -18,23 +18,24 @@ const getFaves1 = data => ({
 // fetch thunk
 export const fetchFaves = () => {
   return (dispatch) => {
-    // const endpoint = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${speakerId}"`;
+    const endpoint = 'https://r10app-95fea.firebaseio.com/sessions.json';
 
     fetch(endpoint)
       // if fetch is successful, read our JSON out of the response
       .then(response => response.json())
       .then((data) => {
-        dispatch(getFaves1(data));
+        // get realm faves
+        const realmFaves = getFaves();
+
+        const sessionFiltered = data.filter((e) => {
+          return realmFaves.indexOf(e.session_id) > -1;
+        });
+
+        dispatch(getFilteredFaves(sessionFiltered));
       })
       .catch(error => console.log(`Error fetching JSON: ${error}`));
   };
 };
-
-/* export const fetchRealmFaves = () => {
-  const faves = getFaves();
-
-  console.log(faves);
-};*/
 
 // initial state
 const favesPageInitialState = {
