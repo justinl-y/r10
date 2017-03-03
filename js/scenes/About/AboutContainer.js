@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   View,
   ScrollView,
@@ -32,8 +32,10 @@ const AboutContainer = ({ items }) => (
         ))
       }
     </View>
+    <Text style={styles.footerText}>&copy; RED Academy</Text>
   </ScrollView>
 );
+
 
 AboutContainer.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,

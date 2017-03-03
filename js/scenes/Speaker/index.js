@@ -11,22 +11,22 @@ class Speaker extends Component {
   
   static route = {
     navigationBar: {
-      title: 'Speaker',
+      title: 'Session Speaker',
     }
   }
 
   componentDidMount() {
-    // this.props.fetchSpeaker(this.props.speakerData.speaker);
+    console.log(this.props.speakerData);
+    // this.props.fetchSpeaker(this.props.speakerData);
   }
 
   componentDidUpdate() {
     if (this.props.dataSource && this.props.isLoading) {
-      this.props.setIsLoading();
+      // this.props.setIsLoading();
     }
   }
 
   render() {
-    console.log('speaker')
     if (this.props.isLoading) {
       return (
         <ActivityIndicator 
@@ -37,8 +37,7 @@ class Speaker extends Component {
     } else {
       return (
         <SpeakerContainer 
-          //session={this.props.speakerData}
-          //speaker={this.props.dataSource}
+          speaker={this.props.speakerData}
         />
       );
     }
@@ -47,18 +46,18 @@ class Speaker extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLoading: state.speaker.isLoading,
-    dataSource: state.speaker.dataSource,
+    // isLoading: state.speaker.isLoading,
+    // dataSource: state.speaker.dataSource,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchSpeaker: (speakerId) => {
+  /*fetchSpeaker: (speakerId) => {
     dispatch(fetchSpeaker(speakerId));
   },
   setIsLoading: () => {
     dispatch(setIsLoading());
-  },
+  },*/
 });
 
 export default connect(

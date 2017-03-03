@@ -3,18 +3,30 @@ import {
   ScrollView,
   Text,
   Image,
+  Linking,
 } from 'react-native';
 import styles from './styles';
 
-const SpeakerContainer = () => {
+const SpeakerContainer = ({ speaker }) => {
   return (
-    <Text>Speaker</Text>
+    <ScrollView>
+      <Image
+        style={styles.speakerImage}
+        source={{ uri: speaker.image }}
+      />
+      <Text>{speaker.name}</Text>
+      <Text>{speaker.bio}</Text>
+      <Text
+        onPress={() => Linking.openURL(speaker.url)}
+      >
+      Read more on Wikipedia
+    </Text>
+    </ScrollView>
   );
 };
 
 SpeakerContainer.propTypes = {
-  // session: PropTypes.object.isRequired,
-  // speaker: PropTypes.array.isRequired,
+  // speaker: PropTypes.object.isRequired,
 };
 
 export default SpeakerContainer;

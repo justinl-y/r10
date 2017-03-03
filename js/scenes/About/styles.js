@@ -47,6 +47,12 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 
+  footerText: {
+    fontFamily: typography.fontMainLight,
+    color: colours.mediumGrey,
+    paddingTop: 20,
+  },
+
   listTextHeader: {
     fontFamily: typography.fontMain,
     color: colours.purple,

@@ -1,13 +1,77 @@
-import React, { PropTypes } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { View, Text, TouchableOpacity, LayoutAnimation, Animated } from 'react-native';
+import { colours, typography } from '../../config/styles';
 import styles from './styles';
 
-const CodeOfConduct = ({ title, description }) => (
-  <View>
-    <Text style={styles.listTextHeader}>{title}</Text>
-    <Text style={styles.bodyText}>{description}</Text>
-  </View>
-);
+// const CodeOfConduct = ({ title, description }) => (
+class CodeOfConduct extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      displayItem: false,
+      openItemIndicator: '+',
+      spinValue: new Animated.Value(0),
+    };
+
+    // const { title, description } = this.props;
+  }
+
+  toggleComponent = () => {
+    // change openItemIndicator
+    this.state.openItemIndicator === '+' ? this.setState({ openItemIndicator: '-' }) : this.setState({ openItemIndicator: '+' });
+    this.state.spinValue.setValue(0);
+
+    // spin heading indicator
+    Animated.timing(
+      this.state.spinValue,
+      {
+        toValue: 1,
+        duration: 500,
+        //easing: Easing.linear
+      }
+    ).start();
+
+    // toggle item
+    LayoutAnimation.easeInEaseOut();
+    this.setState({ displayItem: !this.state.displayItem });
+  }
+
+  render() {
+    const spin = this.state.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg']
+    });
+
+    const headerIndicatorStyles = {
+      listHeaderIndicator: {
+        transform: [{rotate: spin}],
+        color: colours.purple,
+        fontFamily: typography.fontMain,
+        fontSize: 14,
+        fontWeight: 'bold',
+        //backgroundColor: 'red',
+      },
+    }
+
+    return (
+      <View>
+        <TouchableOpacity
+          onPress={() => { this.toggleComponent(); }}
+          activeOpacity={75 / 100}
+        >
+          <View style={styles.headerText}>
+            <Animated.Text style={headerIndicatorStyles.listHeaderIndicator}>{` ${this.state.openItemIndicator} `}</Animated.Text>
+            <Text style={styles.listHeaderText}>{this.props.title}</Text>
+          </View>
+          { this.state.displayItem &&
+            <Text style={styles.bodyText}>{this.props.description}</Text>
+          }
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
 CodeOfConduct.propTypes = {
   title: PropTypes.string.isRequired,

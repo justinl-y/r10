@@ -32,7 +32,7 @@ class NavigationLayout extends Component {
     return (
       <TabNavigation
         id="main"
-        //navigatorUID="root"
+        // navigatorUID="root"
         initialTab="about"
         tabBarColor="black"
       >

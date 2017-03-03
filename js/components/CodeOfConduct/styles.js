@@ -3,19 +3,23 @@ import {
 } from 'react-native';
 import { colours, typography } from '../../config/styles';
 
-
 const styles = StyleSheet.create({
   bodyText: {
     fontFamily: typography.fontMainLight,
     color: colours.mediumGrey,
+    paddingTop: 20,
     paddingBottom: 20,
   },
 
-  listTextHeader: {
-    fontFamily: typography.fontMain,
+  headerText: {
+    flexDirection: 'row',
+  },
+
+  listHeaderText: {
     color: colours.purple,
+    fontFamily: typography.fontMain,
     fontSize: 14,
-    paddingBottom: 20,
+    // marginBottom: 20,
     fontWeight: 'bold',
   },
 });
