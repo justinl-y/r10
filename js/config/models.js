@@ -14,7 +14,9 @@ export const realm = new Realm({ schema: [Fave] });
 
 // getFaves
 export const getFaves = () => {
-  realm.objects('Fave');
+  const faves = realm.objects('Fave').map(e => e.id);
+
+  return faves;
 };
 
 // getFave
@@ -37,8 +39,7 @@ export const addFave = (faveId) => {
 // deleteFave
 export const deleteFave = (faveId) => {
   realm.write(() => {
-    const faves = realm.objects('Fave');
-    const fave = faves.filtered('id == $0', faveId);
+    const fave = realm.objects('Fave').filtered('id == $0', faveId);
 
     realm.delete(fave);
   });

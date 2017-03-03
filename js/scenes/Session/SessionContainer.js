@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
+  Platform,
   ScrollView,
   Text,
   Image,
@@ -10,7 +11,7 @@ import styles from './styles';
 import { colours } from '../../config/styles';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
-import { getFave, addFave, deleteFave } from '../../config/models';
+import { realm, getFave, addFave, deleteFave } from '../../config/models';
 
 // const SessionContainer = ({ session, speaker }) => {
 class SessionContainer extends Component {
@@ -28,6 +29,8 @@ class SessionContainer extends Component {
   }
 
   componentDidMount() {
+    // console.log('the path is: ', realm.path);
+
     this.setStateIfFave(this.props.session.session_id);
   }
 
@@ -59,7 +62,14 @@ class SessionContainer extends Component {
     return (
       <ScrollView>
         <Text>{session.location}</Text>
-        <Icon name={'ios-heart'} size={24} color={this.state.faveIconColour} />
+        {
+        Platform.OS === 'ios' &&
+          <Icon name={'ios-heart'} size={24} color={this.state.faveIconColour} />
+        }
+        {
+        Platform.OS === 'android' &&
+          <Icon name={'md-heart'} size={24} color={this.state.faveIconColour} />
+        }
         <Text>{session.title}</Text>
         <Text>{formatTimeStampToHours(session.start_time)}</Text>
         <Text>{session.description}</Text>

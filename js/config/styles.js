@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 export const colours = {
   mediumGrey: '#999999',
   lightGrey: '#e6e6e6',
@@ -12,6 +14,13 @@ export const colours = {
 export const typography = {
   baseSize: 16,
   smallSize: 12,
-  fontMain: 'Montserrat',
+  ...Platform.select({
+    ios: {
+      fontMain: 'Montserrat',
+    },
+    android: {
+      fontMain: 'Monserrat-Regular',
+    },
+  }),
   fontMainLight: 'Montserrat-Light',
 };
