@@ -42,7 +42,6 @@ export default (state = schedulePageInitialState, action) => {
       return { ...state, isLoading: false };
     case GET_SCHEDULE:
       const formattedData = formatSessionData(action.payload);
-
       return { ...state, dataSource: formattedData };
     default:
       return state;

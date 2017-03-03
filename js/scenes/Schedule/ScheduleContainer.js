@@ -10,7 +10,7 @@ import { colours } from '../../config/styles';
 import { goToSession } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
 
-const ScheduleContainer = ({ items }) => (
+const ScheduleContainer = ({ items, origin }) => (
   <ListView
     style={styles.container}
     dataSource={items}
@@ -21,7 +21,8 @@ const ScheduleContainer = ({ items }) => (
     }
     renderRow={item =>
       <TouchableHighlight
-        onPress={() => { goToSession('schedule', item); }}
+        // onPress={() => { goToSession('schedule', item); }}
+        onPress={() => { goToSession(origin, item); }}
         activeOpacity={75 / 100}
         underlayColor={colours.lightGrey}
       >
@@ -36,6 +37,7 @@ const ScheduleContainer = ({ items }) => (
 
 ScheduleContainer.propTypes = {
   items: PropTypes.object.isRequired,
+  origin: PropTypes.string.isRequired,
 };
 
 export default ScheduleContainer;

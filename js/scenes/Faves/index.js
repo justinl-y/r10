@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, ListView } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchFaves, setIsLoading } from '../../redux/modules/favesReducer';
-import FavesContainer from './FavesContainer';
+import ScheduleContainer from '../Schedule/ScheduleContainer';
 
 class Faves extends Component {
   constructor() {
@@ -35,18 +35,28 @@ class Faves extends Component {
       );
     } else {
       return (
-        <FavesContainer 
-          faves={this.props.dataSource}
+         <ScheduleContainer 
+          items={this.props.dataSource}
+          origin={'faves'}
         />
       );
     }
   }
 }
 
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2,
+  sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+});
+
 const mapStateToProps = (state) => {
   return {
     isLoading: state.faves.isLoading,
-    dataSource: state.faves.dataSource,
+    dataSource: ds.cloneWithRowsAndSections(
+      state.faves.dataSource.dataBlob,
+      state.faves.dataSource.sectionIds,
+      state.faves.dataSource.rowIds
+    ),
   };
 };
 
@@ -63,3 +73,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Faves);
+
+/*
+
+        <ScheduleContainer 
+          items={this.props.dataSource}
+        />
+
+        */

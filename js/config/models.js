@@ -13,18 +13,14 @@ const Fave = {
 export const realm = new Realm({ schema: [Fave] });
 
 // getFaves
-export const getFaves = () => {
-  const faves = realm.objects('Fave').map(e => e.id);
-
-  return faves;
-};
+export const getFaves = () => (
+  realm.objects('Fave').map(e => e.id)
+);
 
 // getFave
-export const getFave = (faveId) => {
-  const fave = realm.objects('Fave').filtered('id == $0', faveId);
-
-  return fave.length;
-};
+export const getFave = (faveId) => (
+  realm.objects('Fave').filtered('id == $0', faveId).length
+);
 
 // addFaves
 export const addFave = (faveId) => {
