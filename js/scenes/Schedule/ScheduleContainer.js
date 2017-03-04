@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
 import {
-  View,
   Text,
   ListView,
-  TouchableHighlight,
 } from 'react-native';
-import styles from './styles';
-import { colours } from '../../config/styles';
-import { goToSession } from '../../lib/navigationHelpers';
+import ScheduleItem from '../../components/ScheduleItem';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
+import styles from './styles';
 
 const ScheduleContainer = ({ items, origin }) => (
   <ListView
@@ -20,17 +17,10 @@ const ScheduleContainer = ({ items, origin }) => (
       >{formatTimeStampToHours(startTime)}</Text>
     }
     renderRow={item =>
-      <TouchableHighlight
-        // onPress={() => { goToSession('schedule', item); }}
-        onPress={() => { goToSession(origin, item); }}
-        activeOpacity={75 / 100}
-        underlayColor={colours.lightGrey}
-      >
-        <View style={styles.rowItem}>
-          <Text style={styles.rowItemTitle}>{item.title}</Text>
-          <Text>{item.location}</Text>
-        </View>
-      </TouchableHighlight>
+      <ScheduleItem
+        item={item}
+        origin={origin}
+      />
     }
   />
 );

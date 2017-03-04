@@ -11,10 +11,10 @@ import styles from './styles';
 import { colours } from '../../config/styles';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
+
 import { realm, getFave, addFave, deleteFave } from '../../config/models';
 import { getRealmFave, addRealmFave, deleteRealmFave } from '../../redux/reducers';
 
-// const SessionContainer = ({ session, speaker }) => {
 class SessionContainer extends Component {
   constructor() {
     super();
