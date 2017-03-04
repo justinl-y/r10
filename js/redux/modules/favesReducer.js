@@ -1,8 +1,11 @@
-import { getFaves } from '../../config/models';
+import { getFaves, addFave, deleteFave } from '../../config/models';
 import { formatSessionData } from '../../lib/dataFormatHelpers';
 
 // action types
 const GET_FAVES = 'GET_FAVES';
+const ADD_FAVE = 'ADD_FAVE';
+const DELETE_FAVE = 'DELETE_FAVE';
+
 const SET_IS_LOADING_FALSE = 'SET_IS_LOADING_FALSE';
 
 // action creator
@@ -14,6 +17,16 @@ export const setIsLoading = () => ({
 const getFilteredFaves = data => ({
   type: GET_FAVES,
   payload: data,
+});
+
+export const addRealmFave = id => ({
+  type: ADD_FAVE,
+  payload: id,
+});
+
+export const deleteRealmFave = id => ({
+  type: DELETE_FAVE,
+  payload: id,
 });
 
 // fetch thunk
@@ -50,6 +63,14 @@ export default (state = favesPageInitialState, action) => {
     case GET_FAVES:
       const formattedData = formatSessionData(action.payload);
       return { ...state, dataSource: formattedData };
+    case ADD_FAVE:
+      addFave(action.payload);
+
+      return state;
+    case DELETE_FAVE:
+      deleteFave(action.payload);
+
+      return state;
     default:
       return state;
   }

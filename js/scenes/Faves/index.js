@@ -3,10 +3,15 @@ import { ActivityIndicator, ListView } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchFaves, setIsLoading } from '../../redux/modules/favesReducer';
 import ScheduleContainer from '../Schedule/ScheduleContainer';
+import { realm } from '../../config/models';
 
 class Faves extends Component {
   constructor() {
     super();
+
+    realm.addListener('change', () => {
+      this.props.fetchFaves();
+    });
   }
   
   static route = {
@@ -73,11 +78,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Faves);
-
-/*
-
-        <ScheduleContainer 
-          items={this.props.dataSource}
-        />
-
-        */

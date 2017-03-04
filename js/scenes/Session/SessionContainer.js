@@ -12,6 +12,7 @@ import { colours } from '../../config/styles';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
 import { realm, getFave, addFave, deleteFave } from '../../config/models';
+import { getRealmFave, addRealmFave, deleteRealmFave } from '../../redux/reducers';
 
 // const SessionContainer = ({ session, speaker }) => {
 class SessionContainer extends Component {
@@ -36,6 +37,7 @@ class SessionContainer extends Component {
 
   setStateIfFave(sessionId) {
     if (getFave(sessionId) !== 0) {
+    // if (getRealmFave(sessionId) !== 0) {
       this.setState({ isFave: true });
       this.setState({ faveButtonText: 'Remove from Faves' });
       this.setState({ faveIconColour: 'red' });
@@ -45,11 +47,15 @@ class SessionContainer extends Component {
   toggleFaves(sessionId) {
     if (this.state.isFave) {
       deleteFave(sessionId);
+      // deleteRealmFave(sessionId);
+
       this.setState({ isFave: false });
       this.setState({ faveButtonText: 'Add to Faves' });
       this.setState({ faveIconColour: 'white' });
     } else {
       addFave(sessionId);
+      // addRealmFave(sessionId);
+
       this.setState({ isFave: true });
       this.setState({ faveButtonText: 'Remove from Faves' });
       this.setState({ faveIconColour: 'red' });
