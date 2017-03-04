@@ -51,6 +51,8 @@
 		564ECD4A793D4F2DA67A47C4 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C0F5F88DD433993BDED90 /* libRealmReact.a */; };
 		D89F9A1973844CE3B6B9F4AD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BD3567C7DA4F9DBEB6011C /* libc++.tbd */; };
 		148227A6D19048D0ABD9343B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4148681D4948ECADEBE0FD /* libz.tbd */; };
+		F19EE956B6614A6C958BF1BD /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD999EB1B2514CBE995B6291 /* libBVLinearGradient.a */; };
+		68A79D0AAD594FF2A2D49DE9 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 680A9F2A6B42447C94C59D77 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +290,10 @@
 		431C0F5F88DD433993BDED90 /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		C7BD3567C7DA4F9DBEB6011C /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		1B4148681D4948ECADEBE0FD /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		00663C696A22495E9B427651 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		DD999EB1B2514CBE995B6291 /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		8B69A6FAA0024C00B89B2C12 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		680A9F2A6B42447C94C59D77 /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +324,8 @@
 				564ECD4A793D4F2DA67A47C4 /* libRealmReact.a in Frameworks */,
 				D89F9A1973844CE3B6B9F4AD /* libc++.tbd in Frameworks */,
 				148227A6D19048D0ABD9343B /* libz.tbd in Frameworks */,
+				F19EE956B6614A6C958BF1BD /* libBVLinearGradient.a in Frameworks */,
+				68A79D0AAD594FF2A2D49DE9 /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +494,8 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				C1AE2FA0AE924BFB9D757FE6 /* RNVectorIcons.xcodeproj */,
 				6F7C2ABE0E6E434087FC293F /* RealmReact.xcodeproj */,
+				00663C696A22495E9B427651 /* BVLinearGradient.xcodeproj */,
+				8B69A6FAA0024C00B89B2C12 /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";

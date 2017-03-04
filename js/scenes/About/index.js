@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
+import { ActivityIndicator } from 'react-native';
 import { fetchCodeOfConduct, setIsLoading } from '../../redux/modules/aboutReducer';
 import AboutContainer from './AboutContainer';
 

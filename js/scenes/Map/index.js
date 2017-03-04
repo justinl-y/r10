@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
-// import styles from './styles';
+import Map from './Map';
 
 class AppMap extends Component {
   constructor() {
@@ -18,9 +14,7 @@ class AppMap extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Map</Text>
-      </View>
+      <Map />
     );
   }
 }
