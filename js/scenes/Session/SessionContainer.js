@@ -76,7 +76,7 @@ class SessionContainer extends Component {
         <Text style={styles.sessionH1}>{session.title}</Text>
         <Text style={styles.sessionTime}>{formatTimeStampToHours(session.start_time)}</Text>
         <Text style={styles.sessionText}>{session.description}</Text>
-        { speaker !== undefined ?
+        { speaker !== undefined || null ?
           <View>
             <Text style={styles.sessionH2}>Presented By:</Text>
             <View style={styles.imageItems}>
@@ -116,12 +116,12 @@ class SessionContainer extends Component {
 }
 
 SessionContainer.defaultProps = {
-  speaker: PropTypes.object,
+  // speaker: PropTypes.object,
 };
 
 SessionContainer.propTypes = {
   session: PropTypes.object.isRequired,
-  speaker: PropTypes.object,
+  // speaker: PropTypes.object,
 };
 
 export default SessionContainer;
