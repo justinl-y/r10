@@ -38,7 +38,7 @@ class NavigationLayout extends Component {
     return (
       <DrawerNavigation
         id="main"
-        initialItem="about"
+        initialItem="schedule"
         drawerWidth={300}
       >
         <DrawerNavigationItem

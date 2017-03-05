@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, ListView } from 'react-native';
 import { connect } from 'react-redux';
+import { ListView } from 'react-native';
+import { realm } from '../../config/models';
 import { fetchSchedule, setIsLoading } from '../../redux/modules/scheduleReducer';
-import ScheduleContainer from './ScheduleContainer'
+import ScheduleContainer from './ScheduleContainer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 class Schedule extends Component {
   constructor() {
     super();
+
+    realm.addListener('change', () => {
+      this.props.fetchSchedule();
+    });
   }
   
   static route = {
     navigationBar: {
-    title: 'Schedule',
+      title: 'Schedule',
     }
   }
 
@@ -28,10 +34,7 @@ class Schedule extends Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <ActivityIndicator 
-          animating size="small" 
-          color="black"
-        />
+        <LoadingSpinner />
       );
     } else {
       return (

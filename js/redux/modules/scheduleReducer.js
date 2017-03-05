@@ -23,6 +23,7 @@ export const fetchSchedule = () => {
       // if fetch is successful, read our JSON out of the response
       .then(response => response.json())
       .then((data) => {
+        console.log('schedule thunk run');
         dispatch(getSchedule(data));
       })
       .catch(error => console.log(`Error fetching JSON: ${error}`));

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
   Platform,
@@ -24,7 +24,7 @@ class ScheduleItem extends Component {
   }
 
   componentDidMount() {
-    // this.setStateIfFave(this.props.item.session_id)
+    this.setStateIfFave(this.props.item.session_id);
   }
 
   setStateIfFave(sessionId) {
@@ -60,5 +60,10 @@ class ScheduleItem extends Component {
     );
   }
 }
+
+ScheduleItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  origin: PropTypes.string.isRequired,
+};
 
 export default ScheduleItem;

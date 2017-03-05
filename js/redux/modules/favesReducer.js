@@ -43,6 +43,8 @@ export const fetchFaves = () => {
         // filter data with realm fave ids
         const sessionFiltered = data.filter(e => realmFaves.indexOf(e.session_id) > -1);
 
+        console.log('faves thunk run');
+
         dispatch(getFilteredFaves(sessionFiltered));
       })
       .catch(error => console.log(`Error fetching JSON: ${error}`));

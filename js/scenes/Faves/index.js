@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, ListView } from 'react-native';
 import { connect } from 'react-redux';
+import { ActivityIndicator, ListView } from 'react-native';
+import { realm } from '../../config/models';
 import { fetchFaves, setIsLoading } from '../../redux/modules/favesReducer';
 import ScheduleContainer from '../Schedule/ScheduleContainer';
-import { realm } from '../../config/models';
 
 class Faves extends Component {
   constructor() {
