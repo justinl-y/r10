@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { fetchCodeOfConduct, setIsLoading } from '../../redux/modules/aboutReducer';
 import AboutContainer from './AboutContainer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 class About extends Component {
   constructor() {
@@ -28,10 +29,7 @@ class About extends Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <ActivityIndicator 
-          animating size="small" 
-          color="black"
-        />
+        <LoadingSpinner />
       );
     } else {
       return (

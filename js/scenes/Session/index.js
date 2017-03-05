@@ -3,6 +3,7 @@ import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchSession, setIsLoading } from '../../redux/modules/sessionReducer';
 import SessionContainer from './SessionContainer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 class Session extends Component {
   constructor() {
@@ -28,10 +29,7 @@ class Session extends Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <ActivityIndicator 
-          animating size="small" 
-          color="black"
-        />
+        <LoadingSpinner />
       );
     } else {
       return (

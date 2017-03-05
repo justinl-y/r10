@@ -4,6 +4,7 @@ import { ActivityIndicator, ListView } from 'react-native';
 import { realm } from '../../config/models';
 import { fetchFaves, setIsLoading } from '../../redux/modules/favesReducer';
 import ScheduleContainer from '../Schedule/ScheduleContainer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 class Faves extends Component {
   constructor() {
@@ -33,10 +34,7 @@ class Faves extends Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <ActivityIndicator 
-          animating size="small" 
-          color="black"
-        />
+        <LoadingSpinner />
       );
     } else {
       return (
