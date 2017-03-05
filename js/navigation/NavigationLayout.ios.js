@@ -14,8 +14,9 @@ import styles from './styles';
 const defaultRouteConfig = {
   navigationBar: {
     titleStyle: {
-      color: 'white',
+      color: colours.brandWhite,
     },
+    tintColor: colours.brandWhite,
     renderBackground: () =>
       <LinearGradient
         start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}

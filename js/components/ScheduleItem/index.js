@@ -46,15 +46,17 @@ class ScheduleItem extends Component {
       >
         <View style={styles.rowItem}>
           <Text style={styles.rowItemTitle}>{item.title}</Text>
-          <Text>{item.location}</Text>
-          {
-          Platform.OS === 'ios' &&
-            <Icon name={'ios-heart'} size={24} color={this.state.faveIconColour} />
-          }
-          {
-          Platform.OS === 'android' &&
-            <Icon name={'md-heart'} size={24} color={this.state.faveIconColour} />
-          }
+          <View style={styles.rowItemContent}>
+            <Text style={styles.textItem}>{item.location}</Text>
+            {
+            Platform.OS === 'ios' &&
+              <Icon name={'ios-heart'} size={16} color={this.state.faveIconColour} />
+            }
+            {
+            Platform.OS === 'android' &&
+              <Icon name={'md-heart'} size={16} color={this.state.faveIconColour} />
+            }
+          </View>
         </View>
       </TouchableHighlight>
     );

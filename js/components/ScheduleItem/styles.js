@@ -1,11 +1,35 @@
 import {
   StyleSheet,
 } from 'react-native';
-// import { colours, typography } from '../../config/styles';
+import { colours, typography } from '../../config/styles';
 
 const styles = StyleSheet.create({
-  component: {
-    // TODO additional styles
+  rowItem: {
+    flex: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 7.5,
+    paddingRight: 7.5,
+    borderLeftColor: colours.brandWhite,
+    borderRightColor: colours.brandWhite,
+    borderTopColor: colours.brandWhite,
+    borderBottomColor: colours.borderLight,
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+  rowItemTitle: {
+    paddingBottom: 5,
+    fontFamily: typography.fontMain,
+    fontSize: 16,
+  },
+  rowItemContent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  textItem: {
+    fontFamily: typography.fontMain,
+    color: colours.textDark,
   },
 });
 
