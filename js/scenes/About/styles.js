@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
 
   footerText: {
     fontFamily: typography.fontMainLight,
-    paddingTop: 20,
   },
 
   listTextHeader: {

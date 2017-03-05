@@ -6,12 +6,13 @@ import { colours, typography } from '../../config/styles';
 const styles = StyleSheet.create({
   bodyText: {
     fontFamily: typography.fontMainLight,
-    paddingTop: 20,
+    // paddingTop: 20,
     paddingBottom: 20,
   },
 
   headerText: {
     flexDirection: 'row',
+    paddingBottom: 20,
   },
 
   listHeaderText: {

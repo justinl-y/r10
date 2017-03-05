@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, LayoutAnimation, Animated } from 'react-n
 import { colours, typography } from '../../config/styles';
 import styles from './styles';
 
-// const CodeOfConduct = ({ title, description }) => (
 class CodeOfConduct extends Component {
   constructor() {
     super();
@@ -13,8 +12,6 @@ class CodeOfConduct extends Component {
       openItemIndicator: '+',
       spinValue: new Animated.Value(0),
     };
-
-    // const { title, description } = this.props;
   }
 
   toggleComponent = () => {
@@ -38,6 +35,8 @@ class CodeOfConduct extends Component {
   }
 
   render() {
+    const { title, description } = this.props;
+
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '360deg']
@@ -50,7 +49,6 @@ class CodeOfConduct extends Component {
         fontFamily: typography.fontMain,
         fontSize: 14,
         fontWeight: 'bold',
-        //backgroundColor: 'red',
       },
     }
 
@@ -62,10 +60,10 @@ class CodeOfConduct extends Component {
         >
           <View style={styles.headerText}>
             <Animated.Text style={headerIndicatorStyles.listHeaderIndicator}>{` ${this.state.openItemIndicator} `}</Animated.Text>
-            <Text style={styles.listHeaderText}>{this.props.title}</Text>
+            <Text style={styles.listHeaderText}>{title}</Text>
           </View>
           { this.state.displayItem &&
-            <Text style={styles.bodyText}>{this.props.description}</Text>
+            <Text style={styles.bodyText}>{description}</Text>
           }
         </TouchableOpacity>
       </View>
