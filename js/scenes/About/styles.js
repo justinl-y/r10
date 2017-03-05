@@ -10,8 +10,6 @@ const styles = StyleSheet.create({
   },
 
   imageCentre: {
-    // flex: 1,
-    // justifyContent: 'center',
     alignItems: 'center',
   },
 
@@ -34,7 +32,6 @@ const styles = StyleSheet.create({
 
   bodyTextHeader: {
     fontFamily: typography.fontMain,
-    color: colours.textDark,
     fontSize: 22,
     paddingBottom: 20,
     fontWeight: 'bold',
@@ -42,13 +39,11 @@ const styles = StyleSheet.create({
 
   bodyText: {
     fontFamily: typography.fontMainLight,
-    color: colours.textDark,
     paddingBottom: 20,
   },
 
   footerText: {
     fontFamily: typography.fontMainLight,
-    color: colours.textDark,
     paddingTop: 20,
   },
 

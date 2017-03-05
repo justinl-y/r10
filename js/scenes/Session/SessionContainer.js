@@ -89,13 +89,15 @@ class SessionContainer extends Component {
           </TouchableHighlight>
           <Text style={styles.speakerTitle}>{speaker.name}</Text>
         </View>
-        <View style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => { this.toggleFaves(session.session_id); }}
-          >
-            { this.state.faveButtonText }
-          </Text>
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Text
+              style={styles.buttonText}
+              onPress={() => { this.toggleFaves(session.session_id); }}
+            >
+              { this.state.faveButtonText }
+            </Text>
+          </View>
         </View>
       </ScrollView>
     );

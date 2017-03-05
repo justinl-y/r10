@@ -62,21 +62,26 @@ const styles = StyleSheet.create({
     fontFamily: typography.fontMain,
     fontSize: 16,
   },
+  buttonContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
   button: {
     flex: 1,
-    // flexDirection: 'row',
     alignItems: 'center',
-    // justifyContent: 'center',
     marginTop: 20,
     marginBottom: 20,
     padding: 15,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    // width: 200,
+    // borderStyle: 'solid',
+    // borderWidth: 1,
+    width: 200,
+    borderRadius: 37.5,
+    backgroundColor: colours.brandBlue,
   },
   buttonText: {
     fontFamily: typography.fontMain,
     fontSize: 16,
+    color: colours.brandWhite,
   },
 });
 
