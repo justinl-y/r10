@@ -3,8 +3,8 @@ import {
   ScrollView,
   Text,
   Image,
-  Linking,
 } from 'react-native';
+import ButtonLinking from '../../components/ButtonLinking';
 import styles from './styles';
 
 const SpeakerContainer = ({ speaker }) => (
@@ -15,11 +15,10 @@ const SpeakerContainer = ({ speaker }) => (
     />
     <Text>{speaker.name}</Text>
     <Text>{speaker.bio}</Text>
-    <Text
-      onPress={() => Linking.openURL(speaker.url)}
-    >
-    Read more on Wikipedia
-  </Text>
+    <ButtonLinking
+      url={speaker.url}
+      text="Read more on Wikipedia"
+    />
   </ScrollView>
 );
 

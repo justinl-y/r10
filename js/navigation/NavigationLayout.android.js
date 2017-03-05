@@ -5,9 +5,26 @@ import {
   DrawerNavigationItem,
 } from '@exponent/ex-navigation';
 import { Text } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Router from '../../js/navigation/router';
-import { colours } from '../../js/config/styles';
+import { colours, typography } from '../../js/config/styles';
+import styles from './styles';
+
+const defaultRouteConfig = {
+  navigationBar: {
+    titleStyle: {
+      color: colours.brandWhite,
+      fontFamily: typography.fontMain,
+    },
+    renderBackground: () =>
+      <LinearGradient
+        start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}
+        colors={[colours.brandPurple, colours.brandRed]}
+        style={styles.linearGradient}
+      />,
+  },
+};
 
 class NavigationLayout extends Component {
   static route = {
@@ -17,20 +34,18 @@ class NavigationLayout extends Component {
   };
 
   renderTitle(title, isSelected) {
-    // const color = isSelected ? colours.tabIconSelected : colours.tabIconDefault;
-    const color = isSelected ? 'purple' : 'grey';
+    const colour = isSelected ? colours.navIconSelected : colours.navIconDefault;
 
     return (
-      <Text size={12} style={{ color }}>{title}</Text>
+      <Text size={12} style={{ colour }}>{title}</Text>
     );
   }
 
   renderIcon(iconName, isSelected) {
-    // const color = isSelected ? colours.tabIconSelected : colours.tabIconDefault;
-    const color = isSelected ? 'purple' : 'grey';
+    const colour = isSelected ? colours.navIconSelected : colours.navIconDefault;
 
     return (
-      <Icon name={iconName} size={24} color={color} />
+      <Icon name={iconName} size={24} color={colour} />
     );
   }
 
@@ -51,6 +66,7 @@ class NavigationLayout extends Component {
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
 
@@ -64,6 +80,7 @@ class NavigationLayout extends Component {
             id="map"
             navigatorUID="map"
             initialRoute={Router.getRoute('map')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
 
@@ -77,6 +94,7 @@ class NavigationLayout extends Component {
             id="faves"
             navigatorUID="faves"
             initialRoute={Router.getRoute('faves')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
 
@@ -90,6 +108,7 @@ class NavigationLayout extends Component {
             id="about"
             navigatorUID="about"
             initialRoute={Router.getRoute('about')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
       </DrawerNavigation>

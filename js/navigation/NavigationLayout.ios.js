@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Router from '../../js/navigation/router';
 import { colours } from '../../js/config/styles';
-import { styles } from './styles';
+import styles from './styles';
 
 const defaultRouteConfig = {
   navigationBar: {
@@ -18,8 +18,8 @@ const defaultRouteConfig = {
     },
     renderBackground: () =>
       <LinearGradient
-        start={{ x: 1.0, y: 0.5 }} end={{ x: -0.25, y: 1.25 }}
-        colors={[colours.purple, 'red']}
+        start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}
+        colors={[colours.brandPurple, colours.brandRed]}
         style={styles.linearGradient}
       />,
   },
@@ -55,7 +55,7 @@ class NavigationLayout extends Component {
       <TabNavigation
         id="main"
         initialTab="schedule"
-        tabBarColor="black"
+        tabBarColor={colours.brandBlack}
       >
         <TabNavigationItem
           id="schedule"

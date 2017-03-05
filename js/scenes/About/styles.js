@@ -19,13 +19,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     marginBottom: 20,
-    borderLeftColor: colours.white,
-    borderRightColor: colours.white,
-    borderTopColor: colours.white,
-    borderBottomColor: colours.lightGrey,
+    borderLeftColor: colours.brandWhite,
+    borderRightColor: colours.brandWhite,
+    borderTopColor: colours.brandWhite,
+    borderBottomColor: colours.borderLight,
     borderStyle: 'solid',
     borderWidth: 0.5,
-    //height: StyleSheet.hairlineWidth,
   },
 
   headerImage: {
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
 
   bodyTextHeader: {
     fontFamily: typography.fontMain,
-    color: colours.mediumGrey,
+    color: colours.textDark,
     fontSize: 22,
     paddingBottom: 20,
     fontWeight: 'bold',
@@ -43,24 +42,23 @@ const styles = StyleSheet.create({
 
   bodyText: {
     fontFamily: typography.fontMainLight,
-    color: colours.mediumGrey,
+    color: colours.textDark,
     paddingBottom: 20,
   },
 
   footerText: {
     fontFamily: typography.fontMainLight,
-    color: colours.mediumGrey,
+    color: colours.textDark,
     paddingTop: 20,
   },
 
   listTextHeader: {
     fontFamily: typography.fontMain,
-    color: colours.purple,
+    color: colours.brandPurple,
     fontSize: 14,
     paddingBottom: 20,
     fontWeight: 'bold',
   },
-
 });
 
 export default styles;

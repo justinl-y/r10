@@ -6,9 +6,9 @@ import {
   Text,
   TouchableHighlight,
 } from 'react-native';
-import { colours } from '../../config/styles';
 import { goToSession } from '../../lib/navigationHelpers';
 import { getFave } from '../../config/models';
+import { colours } from '../../config/styles';
 import styles from './styles';
 
 class ScheduleItem extends Component {
@@ -17,7 +17,7 @@ class ScheduleItem extends Component {
 
     this.state = {
       isFave: false,
-      faveIconColour: 'white',
+      faveIconColour: colours.brandWhite,
     };
 
     this.setStateIfFave.bind(this);
@@ -31,7 +31,7 @@ class ScheduleItem extends Component {
     if (getFave(sessionId) !== 0) {
     // if (getRealmFave(sessionId) !== 0) {
       this.setState({ isFave: true });
-      this.setState({ faveIconColour: 'red' });
+      this.setState({ faveIconColour: colours.brandRed });
     }
   }
 
@@ -42,7 +42,7 @@ class ScheduleItem extends Component {
       <TouchableHighlight
         onPress={() => { goToSession(origin, item); }}
         activeOpacity={75 / 100}
-        underlayColor={colours.lightGrey}
+        underlayColor={colours.selectedItemLight}
       >
         <View style={styles.rowItem}>
           <Text style={styles.rowItemTitle}>{item.title}</Text>

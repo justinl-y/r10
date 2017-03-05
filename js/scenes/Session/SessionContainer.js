@@ -7,11 +7,11 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from './styles';
-import { colours } from '../../config/styles';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
 import { getFave, addFave, deleteFave } from '../../config/models';
+import { colours } from '../../config/styles';
+import styles from './styles';
 
 class SessionContainer extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class SessionContainer extends Component {
     this.state = {
       isFave: false,
       faveButtonText: 'Add to Faves',
-      faveIconColour: 'white',
+      faveIconColour: colours.brandWhite,
     };
 
     this.setStateIfFave.bind(this);
@@ -35,7 +35,7 @@ class SessionContainer extends Component {
     if (getFave(sessionId) !== 0) {
       this.setState({ isFave: true });
       this.setState({ faveButtonText: 'Remove from Faves' });
-      this.setState({ faveIconColour: 'red' });
+      this.setState({ faveIconColour: colours.brandRed });
     }
   }
 
@@ -45,13 +45,13 @@ class SessionContainer extends Component {
 
       this.setState({ isFave: false });
       this.setState({ faveButtonText: 'Add to Faves' });
-      this.setState({ faveIconColour: 'white' });
+      this.setState({ faveIconColour: colours.brandWhite });
     } else {
       addFave(sessionId);
 
       this.setState({ isFave: true });
       this.setState({ faveButtonText: 'Remove from Faves' });
-      this.setState({ faveIconColour: 'red' });
+      this.setState({ faveIconColour: colours.brandRed });
     }
   }
 
@@ -76,7 +76,7 @@ class SessionContainer extends Component {
         <TouchableHighlight
           onPress={() => { goToSpeaker(speaker); }}
           activeOpacity={75 / 100}
-          underlayColor={colours.lightGrey}
+          underlayColor={colours.selectedItemLight}
         >
           <Image
             style={styles.speakerImage}
@@ -86,6 +86,7 @@ class SessionContainer extends Component {
         <Text>{speaker.name}</Text>
         <Text
           onPress={() => { this.toggleFaves(session.session_id); }}
+          style={styles.button}
         >
           { this.state.faveButtonText }
         </Text>
