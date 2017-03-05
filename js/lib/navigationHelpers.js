@@ -16,6 +16,13 @@ export const goToSpeaker = (speakerData) => {
   ));
 };
 
+export const popToSession = (sessionData) => {
+  Store.dispatch(NavigationActions.pop(
+    'session',
+    Router.getRoute('session', { sessionData }),
+  ));
+};
+
 // TODO other functions
 /*
 <TouchableOpacity

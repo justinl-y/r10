@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { formatTimeStampToHours } from '../../lib/timeFormatHelpers';
 import { getFave, addFave, deleteFave } from '../../config/models';
+import LinearGradient from 'react-native-linear-gradient';
 import { colours } from '../../config/styles';
 import styles from './styles';
 
@@ -91,12 +92,18 @@ class SessionContainer extends Component {
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Text
-              style={styles.buttonText}
-              onPress={() => { this.toggleFaves(session.session_id); }}
+            <LinearGradient
+              start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}
+              colors={[colours.brandBlue, colours.brandPurple]}
+              style={styles.linearGradient}
             >
-              { this.state.faveButtonText }
-            </Text>
+              <Text
+                style={styles.buttonText}
+                onPress={() => { this.toggleFaves(session.session_id); }}
+              >
+                { this.state.faveButtonText }
+              </Text>
+            </LinearGradient>
           </View>
         </View>
       </ScrollView>

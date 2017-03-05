@@ -1,6 +1,4 @@
-import {
-  StyleSheet,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { colours, typography } from '../../config/styles';
 
 const styles = StyleSheet.create({
@@ -72,16 +70,21 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     padding: 15,
-    // borderStyle: 'solid',
-    // borderWidth: 1,
     width: 200,
     borderRadius: 37.5,
-    backgroundColor: colours.brandBlue,
+  },
+  linearGradient: {
+    flex: 1,
+    width: 200,
+    borderRadius: 37.5,
   },
   buttonText: {
-    fontFamily: typography.fontMain,
     fontSize: 16,
+    fontFamily: typography.fontMain,
+    textAlign: 'center',
+    margin: 15,
     color: colours.brandWhite,
+    backgroundColor: 'transparent',
   },
 });
 

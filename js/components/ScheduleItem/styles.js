@@ -1,6 +1,4 @@
-import {
-  StyleSheet,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { colours, typography } from '../../config/styles';
 
 const styles = StyleSheet.create({
