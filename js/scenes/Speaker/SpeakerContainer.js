@@ -9,7 +9,7 @@ import ButtonLinking from '../../components/ButtonLinking';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 
-const SpeakerContainer = ({ speaker }) => (
+const SpeakerContainer = ({ speaker, navigator }) => (
   <ScrollView style={styles.container}>
     <View style={styles.header}>
       <View style={styles.headerIcon}>
@@ -17,7 +17,7 @@ const SpeakerContainer = ({ speaker }) => (
           style={styles.headerIconIcon}
           name={'ios-close'}
           size={40} color={'white'}
-          onPress={() => { console.log('exit'); }}
+          onPress={() => { navigator.pop(); }}
         />
       </View>
       <View style={styles.speakerH1}>
@@ -41,6 +41,7 @@ const SpeakerContainer = ({ speaker }) => (
 );
 
 SpeakerContainer.propTypes = {
+  navigator: PropTypes.object.isRequired,
   speaker: PropTypes.object.isRequired,
 };
 

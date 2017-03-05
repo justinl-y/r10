@@ -15,22 +15,3 @@ export const goToSpeaker = (speakerData) => {
     Router.getRoute('speaker', { speakerData }),
   ));
 };
-
-export const popToSession = (sessionData) => {
-  Store.dispatch(NavigationActions.pop(
-    'session',
-    Router.getRoute('session', { sessionData }),
-  ));
-};
-
-// TODO other functions
-/*
-<TouchableOpacity
-  onPress={() => {
-    this.props.navigation.performAction(({ tabs, stacks }) => {
-      tabs('main').jumpToTab('profile');
-      stacks('home').push(route);
-    });
-  }}
-/>
-*/

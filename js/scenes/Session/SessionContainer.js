@@ -76,44 +76,52 @@ class SessionContainer extends Component {
         <Text style={styles.sessionH1}>{session.title}</Text>
         <Text style={styles.sessionTime}>{formatTimeStampToHours(session.start_time)}</Text>
         <Text style={styles.sessionText}>{session.description}</Text>
-        <Text style={styles.sessionH2}>Presented By:</Text>
-        <View style={styles.imageItems}>
-          <TouchableHighlight
-            onPress={() => { goToSpeaker(speaker); }}
-            activeOpacity={75 / 100}
-            underlayColor={colours.selectedItemLight}
-          >
-            <Image
-              style={styles.speakerImage}
-              source={{ uri: speaker.image }}
-            />
-          </TouchableHighlight>
-          <Text style={styles.speakerTitle}>{speaker.name}</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <LinearGradient
-              start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}
-              colors={[colours.brandBlue, colours.brandPurple]}
-              style={styles.linearGradient}
-            >
-              <Text
-                style={styles.buttonText}
-                onPress={() => { this.toggleFaves(session.session_id); }}
+        { speaker !== undefined ?
+          <View>
+            <Text style={styles.sessionH2}>Presented By:</Text>
+            <View style={styles.imageItems}>
+              <TouchableHighlight
+                onPress={() => { goToSpeaker(speaker); }}
+                activeOpacity={75 / 100}
+                underlayColor={colours.selectedItemLight}
               >
-                { this.state.faveButtonText }
-              </Text>
-            </LinearGradient>
+                <Image
+                  style={styles.speakerImage}
+                  source={{ uri: speaker.image }}
+                />
+              </TouchableHighlight>
+              <Text style={styles.speakerTitle}>{speaker.name}</Text>
+            </View>
+            <View style={styles.buttonContainer}>
+              <View style={styles.button}>
+                <LinearGradient
+                  start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}
+                  colors={[colours.brandBlue, colours.brandPurple]}
+                  style={styles.linearGradient}
+                >
+                  <Text
+                    style={styles.buttonText}
+                    onPress={() => { this.toggleFaves(session.session_id); }}
+                  >
+                    { this.state.faveButtonText }
+                  </Text>
+                </LinearGradient>
+              </View>
+            </View>
           </View>
-        </View>
+        : null }
       </ScrollView>
     );
   }
 }
 
+SessionContainer.defaultProps = {
+  speaker: PropTypes.object,
+};
+
 SessionContainer.propTypes = {
   session: PropTypes.object.isRequired,
-  speaker: PropTypes.object.isRequired,
+  speaker: PropTypes.object,
 };
 
 export default SessionContainer;
