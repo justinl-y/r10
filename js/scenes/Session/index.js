@@ -6,10 +6,6 @@ import SessionContainer from './SessionContainer';
 import LoadingSpinner from '../../components/LoadingSpinner';
 
 class Session extends Component {
-  constructor() {
-    super();
-  }
-  
   static route = {
     navigationBar: {
       title: 'Session',

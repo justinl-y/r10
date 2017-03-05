@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {
   Platform,
   ScrollView,
+  View,
   Text,
   Image,
   TouchableHighlight,
@@ -59,37 +60,43 @@ class SessionContainer extends Component {
     const { session, speaker } = this.props;
 
     return (
-      <ScrollView>
-        <Text>{session.location}</Text>
-        {
-        Platform.OS === 'ios' &&
-          <Icon name={'ios-heart'} size={24} color={this.state.faveIconColour} />
-        }
-        {
-        Platform.OS === 'android' &&
-          <Icon name={'md-heart'} size={24} color={this.state.faveIconColour} />
-        }
-        <Text>{session.title}</Text>
-        <Text>{formatTimeStampToHours(session.start_time)}</Text>
-        <Text>{session.description}</Text>
-        <Text>Presented By:</Text>
-        <TouchableHighlight
-          onPress={() => { goToSpeaker(speaker); }}
-          activeOpacity={75 / 100}
-          underlayColor={colours.selectedItemLight}
-        >
-          <Image
-            style={styles.speakerImage}
-            source={{ uri: speaker.image }}
-          />
-        </TouchableHighlight>
-        <Text>{speaker.name}</Text>
-        <Text
-          onPress={() => { this.toggleFaves(session.session_id); }}
-          style={styles.button}
-        >
-          { this.state.faveButtonText }
-        </Text>
+      <ScrollView style={styles.container}>
+        <View style={styles.headerItems}>
+          <Text style={styles.sessionH2}>{session.location}</Text>
+          {
+          Platform.OS === 'ios' &&
+            <Icon name={'ios-heart'} size={16} color={this.state.faveIconColour} />
+          }
+          {
+          Platform.OS === 'android' &&
+            <Icon name={'md-heart'} size={16} color={this.state.faveIconColour} />
+          }
+        </View>
+        <Text style={styles.sessionH1}>{session.title}</Text>
+        <Text style={styles.sessionTime}>{formatTimeStampToHours(session.start_time)}</Text>
+        <Text style={styles.sessionText}>{session.description}</Text>
+        <Text style={styles.sessionH2}>Presented By:</Text>
+        <View style={styles.imageItems}>
+          <TouchableHighlight
+            onPress={() => { goToSpeaker(speaker); }}
+            activeOpacity={75 / 100}
+            underlayColor={colours.selectedItemLight}
+          >
+            <Image
+              style={styles.speakerImage}
+              source={{ uri: speaker.image }}
+            />
+          </TouchableHighlight>
+          <Text style={styles.speakerTitle}>{speaker.name}</Text>
+        </View>
+        <View style={styles.button}>
+          <Text
+            style={styles.buttonText}
+            onPress={() => { this.toggleFaves(session.session_id); }}
+          >
+            { this.state.faveButtonText }
+          </Text>
+        </View>
       </ScrollView>
     );
   }
