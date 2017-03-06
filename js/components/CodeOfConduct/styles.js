@@ -20,13 +20,6 @@ const styles = StyleSheet.create({
     color: colours.brandPurple,
     fontSize: typography.baseSize,
   },
-
-  /*listTextHeader: {
-    fontFamily: typography.fontMain,
-    color: colours.brandPurple,
-    fontSize: typography.baseSize,
-    paddingBottom: 20,
-  },*/
 });
 
 export default styles;

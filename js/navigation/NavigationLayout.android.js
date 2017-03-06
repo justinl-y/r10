@@ -18,6 +18,7 @@ const defaultRouteConfig = {
       fontFamily: typography.fontMain,
       fontSize: typography.baseSize,
     },
+    tintColor: colours.brandWhite,
     renderBackground: () =>
       <LinearGradient
         start={{ x: 1.0, y: 0.5 }} end={{ x: 0, y: 1 }}

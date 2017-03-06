@@ -1,5 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableOpacity, LayoutAnimation, Animated } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  LayoutAnimation,
+  Animated } from 'react-native';
 import { colours, typography } from '../../config/styles';
 import styles from './styles';
 
@@ -39,12 +44,12 @@ class CodeOfConduct extends Component {
 
     const spin = this.state.spinValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['0deg', '360deg']
+      outputRange: ['0deg', '360deg'],
     });
 
     const headerIndicatorStyles = {
       listHeaderIndicator: {
-        transform: [{rotate: spin}],
+        transform: [{ rotate: spin }],
         color: colours.purple,
         fontFamily: typography.fontMain,
         fontSize: 14,
