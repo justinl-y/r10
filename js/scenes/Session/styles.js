@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colours, typography } from '../../config/styles';
+import { Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,18 +15,17 @@ const styles = StyleSheet.create({
   },
   sessionH2: {
     fontFamily: typography.fontMain,
-    fontSize: 16,
+    fontSize: typography.baseSize,
     color: colours.textDark,
   },
   sessionH1: {
     fontFamily: typography.fontMain,
-    fontSize: 26,
-    fontWeight: 'bold',
+    fontSize: typography.largeSize,
     paddingTop: 20,
   },
   sessionTime: {
     fontFamily: typography.fontMain,
-    fontSize: 16,
+    fontSize: typography.baseSize,
     color: colours.brandRed,
     paddingTop: 20,
   },
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   speakerTitle: {
     fontFamily: typography.fontMain,
-    fontSize: 16,
+    fontSize: typography.baseSize,
   },
   buttonContainer: {
     flex: 1,
@@ -70,16 +70,27 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     padding: 15,
-    width: 200,
-    borderRadius: 37.5,
   },
-  linearGradient: {
-    flex: 1,
-    width: 200,
-    borderRadius: 37.5,
-  },
+
+  ...Platform.select({
+    ios: {
+      linearGradient: {
+        flex: 1,
+        borderRadius: 37.5,
+        width: 200,
+      },
+    },
+    android: {
+      linearGradient: {
+        flex: 1,
+        borderRadius: 37.5,
+        width: 250,
+      },
+    },
+  }),
+
   buttonText: {
-    fontSize: 16,
+    fontSize: typography.baseSize,
     fontFamily: typography.fontMain,
     textAlign: 'center',
     margin: 15,

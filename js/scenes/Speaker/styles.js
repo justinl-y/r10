@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 import { colours, typography } from '../../config/styles';
 
 const styles = StyleSheet.create({
@@ -13,9 +14,6 @@ const styles = StyleSheet.create({
   headerIcon: {
     flex: 1,
     justifyContent: 'center',
-    // borderColor: colours.borderLight,
-    // borderStyle: 'solid',
-    // borderWidth: 1,
     paddingTop: 15,
     paddingBottom: 15,
   },
@@ -26,13 +24,10 @@ const styles = StyleSheet.create({
     flex: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    // borderColor: colours.borderLight,
-    // borderStyle: 'solid',
-    // borderWidth: 1,
   },
   speakerH1Text: {
     fontFamily: typography.fontMain,
-    fontSize: 16,
+    fontSize: typography.baseSize,
     color: colours.brandWhite,
   },
   speakerContent: {
@@ -44,6 +39,17 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   speakerImage: {
+    ...Platform.select({
+      ios: {
+        height: 100,
+        width: 100,
+      },
+      android: {
+        height: 125,
+        width: 125,
+      },
+    }),
+
     height: 100,
     width: 100,
     borderRadius: 50,
@@ -52,14 +58,12 @@ const styles = StyleSheet.create({
   },
   speakerH2Text: {
     fontFamily: typography.fontMain,
-    fontSize: 26,
-    fontWeight: 'bold',
+    fontSize: typography.largeSize,
     paddingBottom: 20,
   },
   speakerText: {
     fontFamily: typography.fontMainLight,
-    fontSize: 16,
-    // paddingBottom: 20,
+    fontSize: typography.baseSize,
     lineHeight: 25,
   },
 });

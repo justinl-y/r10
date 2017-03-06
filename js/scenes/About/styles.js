@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 import { colours, typography } from '../../config/styles';
 
 const styles = StyleSheet.create({
@@ -23,33 +24,44 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
   },
 
-  headerImage: {
-    width: 200,
-    height: 50,
-  },
+  ...Platform.select({
+    ios: {
+      headerImage: {
+        width: 200,
+        height: 50,
+      },
+    },
+    android: {
+      headerImage: {
+        width: 250,
+        height: 65,
+      },
+    },
+  }),
 
   bodyTextHeader: {
     fontFamily: typography.fontMain,
-    fontSize: 22,
+    fontSize: typography.mediumLargeSize,
     paddingBottom: 20,
-    fontWeight: 'bold',
   },
 
   bodyText: {
     fontFamily: typography.fontMainLight,
+    fontSize: typography.baseSize,
     paddingBottom: 20,
   },
 
   footerText: {
     fontFamily: typography.fontMainLight,
-  },
-
-  listTextHeader: {
-    fontFamily: typography.fontMain,
-    color: colours.brandPurple,
-    fontSize: 14,
+    fontSize: typography.baseSize,
+    paddingTop: 20,
     paddingBottom: 20,
-    fontWeight: 'bold',
+    borderLeftColor: colours.brandWhite,
+    borderRightColor: colours.brandWhite,
+    borderTopColor: colours.borderLight,
+    borderBottomColor: colours.brandWhite,
+    borderStyle: 'solid',
+    borderWidth: 0.5,
   },
 });
 

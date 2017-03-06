@@ -70,7 +70,7 @@ class SessionContainer extends Component {
           }
           {
           Platform.OS === 'android' &&
-            <Icon name={'md-heart'} size={16} color={this.state.faveIconColour} />
+            <Icon name={'md-heart'} size={20} color={this.state.faveIconColour} />
           }
         </View>
         <Text style={styles.sessionH1}>{session.title}</Text>

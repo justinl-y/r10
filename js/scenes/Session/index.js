@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchSession, setIsLoading } from '../../redux/modules/sessionReducer';
 import SessionContainer from './SessionContainer';
@@ -29,7 +28,7 @@ class Session extends Component {
       );
     } else {
       return (
-        <SessionContainer 
+        <SessionContainer
           session={this.props.sessionData}
           speaker={this.props.dataSource}
         />
@@ -37,6 +36,18 @@ class Session extends Component {
     }
   }
 }
+
+Session.defaultProps = {
+  // dataSource: PropTypes.object,
+};
+
+Session.propTypes = {
+  fetchSession: PropTypes.func.isRequired,
+  sessionData: PropTypes.object.isRequired,
+  // dataSource: PropTypes.object,
+  setIsLoading: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

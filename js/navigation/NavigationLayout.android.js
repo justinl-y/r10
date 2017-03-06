@@ -16,6 +16,7 @@ const defaultRouteConfig = {
     titleStyle: {
       color: colours.brandWhite,
       fontFamily: typography.fontMain,
+      fontSize: typography.baseSize,
     },
     renderBackground: () =>
       <LinearGradient
@@ -34,18 +35,25 @@ class NavigationLayout extends Component {
   };
 
   renderTitle(title, isSelected) {
-    const colour = isSelected ? colours.navIconSelected : colours.navIconDefault;
+    const color = isSelected ? colours.navIconSelected : colours.navIconDefault;
 
     return (
-      <Text size={12} style={{ colour }}>{title}</Text>
+      <Text
+        style={[styles.titleText, { color }]}
+      >{title}</Text>
     );
   }
 
   renderIcon(iconName, isSelected) {
-    const colour = isSelected ? colours.navIconSelected : colours.navIconDefault;
+    const color = isSelected ? colours.navIconSelected : colours.navIconDefault;
 
     return (
-      <Icon name={iconName} size={24} color={colour} />
+      <Icon
+        name={iconName}
+        size={22}
+        color={color}
+        style={styles.titleIcon}
+      />
     );
   }
 

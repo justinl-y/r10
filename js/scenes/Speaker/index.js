@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import SpeakerContainer from './SpeakerContainer';
 
 class Speaker extends Component {
+  static route = {
+    navigationBar: {
+      visible: false,
+    }
+  }
+  
   render() {
     return (
       <SpeakerContainer

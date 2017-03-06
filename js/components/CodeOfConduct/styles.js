@@ -6,7 +6,7 @@ import { colours, typography } from '../../config/styles';
 const styles = StyleSheet.create({
   bodyText: {
     fontFamily: typography.fontMainLight,
-    // paddingTop: 20,
+    fontSize: typography.baseSize,
     paddingBottom: 20,
   },
 
@@ -16,11 +16,17 @@ const styles = StyleSheet.create({
   },
 
   listHeaderText: {
-    color: colours.brandPurple,
     fontFamily: typography.fontMain,
-    fontSize: 14,
-    fontWeight: 'bold',
+    color: colours.brandPurple,
+    fontSize: typography.baseSize,
   },
+
+  /*listTextHeader: {
+    fontFamily: typography.fontMain,
+    color: colours.brandPurple,
+    fontSize: typography.baseSize,
+    paddingBottom: 20,
+  },*/
 });
 
 export default styles;

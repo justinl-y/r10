@@ -1,12 +1,12 @@
 import { Platform } from 'react-native';
 
 export const colours = {
-  mediumGrey: '#999999',
+  /* mediumGrey: '#999999',
   lightGrey: '#e6e6e6',
   blue: '#8797D6',
   purple: '#9963ea',
   red: '#cf392a',
-  white: '#ffffff',
+  white: '#ffffff',*/
 
   brandWhite: '#ffffff',
   brandBlack: '#000000',
@@ -25,14 +25,20 @@ export const colours = {
 };
 
 export const typography = {
-  baseSize: 16,
-  smallSize: 12,
   ...Platform.select({
     ios: {
       fontMain: 'Montserrat',
+      smallSize: 12,
+      baseSize: 16,
+      mediumLargeSize: 22,
+      largeSize: 26,
     },
     android: {
-      fontMain: 'Monserrat-Regular',
+      fontMain: 'Montserrat-Regular',
+      smallSize: 16,
+      baseSize: 20,
+      mediumLargeSize: 26,
+      largeSize: 30,
     },
   }),
   fontMainLight: 'Montserrat-Light',

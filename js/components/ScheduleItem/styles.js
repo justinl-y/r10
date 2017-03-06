@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 10,
     paddingBottom: 10,
-    paddingLeft: 7.5,
-    paddingRight: 7.5,
+    paddingLeft: 10,
+    paddingRight: 10,
     borderLeftColor: colours.brandWhite,
     borderRightColor: colours.brandWhite,
     borderTopColor: colours.brandWhite,
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   rowItemTitle: {
     paddingBottom: 5,
     fontFamily: typography.fontMain,
-    fontSize: 16,
+    fontSize: typography.baseSize,
   },
   rowItemContent: {
     flex: 1,
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   textItem: {
     fontFamily: typography.fontMain,
     color: colours.textDark,
+    fontSize: typography.smallSize,
   },
 });
 
