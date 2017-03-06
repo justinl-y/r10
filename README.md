@@ -26,15 +26,15 @@ The purpose of this project was to create, using react-native, mobile apps for t
 
 - Install XCode
 - Clone or download project
-- Run npm i or yarn to install
+- Run `npm i` or `yarn` to install
 - Start a react natve packager
-- Run react-native run-ios
+- Run `react-native run-ios`
 
 #### Android
 
 - Install Android Studio and configure an emulator
 - Run android avd and start emulator
 - Clone or download project
-- Run npm i or yarn to install
+- Run `npm i` or `yarn` to install
 - Start a react natve packager
-- Run react-native run-android
+- Run `react-native run-android`
