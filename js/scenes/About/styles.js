@@ -51,17 +51,20 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 
-  footerText: {
-    fontFamily: typography.fontMainLight,
-    fontSize: typography.baseSize,
+  footer: {
     paddingTop: 20,
     paddingBottom: 20,
+    borderTopColor: colours.borderLight,
     borderLeftColor: colours.brandWhite,
     borderRightColor: colours.brandWhite,
-    borderTopColor: colours.borderLight,
     borderBottomColor: colours.brandWhite,
     borderStyle: 'solid',
     borderWidth: 0.5,
+  },
+
+  footerText: {
+    fontFamily: typography.fontMainLight,
+    fontSize: typography.baseSize,
   },
 });
 

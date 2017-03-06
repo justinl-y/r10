@@ -50,7 +50,7 @@ class CodeOfConduct extends Component {
     const headerIndicatorStyles = {
       listHeaderIndicator: {
         transform: [{ rotate: spin }],
-        color: colours.purple,
+        color: colours.brandPurple,
         fontFamily: typography.fontMain,
         fontSize: 14,
         fontWeight: 'bold',

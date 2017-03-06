@@ -32,7 +32,9 @@ const AboutContainer = ({ items }) => (
         ))
       }
     </View>
-    <Text style={styles.footerText}>&copy; RED Academy</Text>
+    <View style={styles.footer}>
+      <Text style={styles.footerText}>&copy; RED Academy</Text>
+    </View>
   </ScrollView>
 );
 
